@@ -3,81 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaim Jami | CS Student @ CU Boulder</title>
-    <meta name="description" content="Portfolio for Zaim Jami, a Computer Science student at the University of Colorado Boulder seeking software engineering internships.">
+    <title>Zaim Jami | Full Stack & Data Engineer</title>
+    <meta name="description" content="Portfolio for Zaim Jami, a CS Junior at CU Boulder specializing in Full Stack Engineering and Data Science.">
     <style>
-        :root { --bg: #ffffff; --text: #1a1a1a; --accent: #CFB87C; /* CU Boulder Goldish tone */ }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 750px; margin: 0 auto; padding: 40px 20px; color: var(--text); line-height: 1.6; }
-        header { margin-bottom: 40px; border-bottom: 2px solid #eee; padding-bottom: 20px; }
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
-        .subtitle { color: #666; font-size: 1.2rem; margin-top: 5px; }
-        .links a { margin-right: 15px; color: #000; font-weight: 600; text-decoration: none; border-bottom: 1px solid #ccc; transition: all 0.2s; }
-        .links a:hover { background-color: #eee; }
-        .section { margin-bottom: 35px; }
-        .project-card { background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
-        .project-card h3 { margin-top: 0; }
-        .tech-tag { display: inline-block; background: #e0e0e0; padding: 2px 8px; border-radius: 4px; font-size: 0.85rem; margin-right: 5px; }
-        footer { font-size: 0.9rem; color: #888; border-top: 1px solid #eee; padding-top: 20px; margin-top: 50px; }
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --subtext: #555;
+            --accent: #CFB87C; /* CU Boulder Goldish tone */
+            --link: #000;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        /* Header & Headshot Layout */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        .header-text {
+            flex: 1;
+        }
+        .headshot {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
+        .role {
+            font-size: 1.1rem;
+            color: var(--subtext);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .links a {
+            margin-right: 15px;
+            color: var(--link);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid #ccc;
+            transition: all 0.2s ease;
+        }
+        .links a:hover {
+            background-color: #f0f0f0;
+            border-bottom-color: #000;
+        }
+        
+        /* Sections */
+        .section-title {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #888;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            font-weight: 700;
+        }
+        
+        /* Experience Cards */
+        .job-item {
+            margin-bottom: 30px;
+        }
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 5px;
+        }
+        .job-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .job-company {
+            color: var(--subtext);
+        }
+        .job-date {
+            font-size: 0.9rem;
+            color: #999;
+        }
+        .job-details li {
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .project-card {
+            background: #fafafa;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            transition: transform 0.2s;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: #ddd;
+        }
+        .project-card h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .project-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .tech-stack {
+            font-size: 0.8rem;
+            color: #666;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 20px;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Zaim Jami</h1>
-        <div class="subtitle">Computer Science Student @ University of Colorado Boulder</div>
-        <p class="links">
-            <a href="https://www.linkedin.com/in/zaim-jami-b19857282/">LinkedIn</a>
-            <a href="https://github.com/zaimjami">GitHub</a>
-            <a href="mailto:zaja3977@colorado.edu">zaja3977@colorado.edu</a>
-        </p>
+        <div class="header-text">
+            <h1>Zaim Jami</h1>
+            <div class="role">Full Stack Engineer & Data Science Practitioner</div>
+            <p>
+                Junior CS Student at CU Boulder combining strong backend systems (Rust/C++) with scientific data pipelines. 
+                Building scalable web applications and intelligent tools.
+            </p>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/zaim-jami-b19857282/">LinkedIn</a>
+                <a href="https://github.com/zaimjami">GitHub</a>
+                <a href="mailto:zaja3977@colorado.edu">zaja3977@colorado.edu</a>
+            </div>
+        </div>
+        <img src="headshot.png" alt="Zaim Jami" class="headshot">
     </header>
 
-    <div class="section">
-        <h2>About</h2>
-        <p>
-            I am a Junior at CU Boulder passionate about building scalable software. 
-            My focus is on <strong>[Insert Your Focus, e.g., Backend Systems / Data Science / Web Development]</strong>. 
-            I am currently looking for Summer 2025 internships where I can apply my skills in 
-            <strong>[Skill A, Skill B]</strong> to solve real-world problems.
-        </p>
+    <div class="section-title">Experience</div>
+
+    <div class="job-item">
+        <div class="job-header">
+            <span class="job-title">Software Developer (Intern)</span>
+            <span class="job-date">May 2025 - Present</span>
+        </div>
+        <div class="job-company">Zokoo Technologies</div>
+        <ul class="job-details">
+            <li>Refactored legacy modules in a full-stack environment, reducing API response times by <strong>28%</strong>.</li>
+            <li>Designed scalable backend services using Node.js/TypeScript and implemented CI/CD pipelines via Docker.</li>
+            <li>Built OAuth2 role-based authentication for multi-tenant applications.</li>
+        </ul>
     </div>
 
-    <div class="section">
-        <h2>Experience & Projects</h2>
-        
+    <div class="job-item">
+        <div class="job-header">
+            <span class="job-title">Research Assistant (Data Science)</span>
+            <span class="job-date">Oct 2025 - Present</span>
+        </div>
+        <div class="job-company">LASP / Malaspina Lab (CU Boulder)</div>
+        <ul class="job-details">
+            <li>Developing automated data-cleaning scripts for space-plasma waveform data using Python (NumPy, SciPy).</li>
+            <li>Collaborating with graduate researchers to validate instrument calibration, improving model accuracy by 15%.</li>
+        </ul>
+    </div>
+
+    <div class="job-item">
+        <div class="job-header">
+            <span class="job-title">Full Stack Developer</span>
+            <span class="job-date">Aug 2024 - Present</span>
+        </div>
+        <div class="job-company">Blueprint Boulder</div>
+        <ul class="job-details">
+            <li>Migrated nonprofit platform to Next.js, boosting load speed by <strong>42%</strong> and SEO score to 94.</li>
+            <li>Deployed via Vercel and Docker with automated CI/CD workflows.</li>
+        </ul>
+    </div>
+
+    <div class="section-title">Key Projects</div>
+
+    <div class="project-grid">
         <div class="project-card">
-            <h3>[Project Name 1]</h3>
-            <p><strong>Role:</strong> Lead Developer</p>
-            <p>[One sentence description: e.g., A real-time chat application built for student collaboration.]</p>
-            <div>
-                <span class="tech-tag">[Tech A]</span>
-                <span class="tech-tag">[Tech B]</span>
-                <span class="tech-tag">[Tech C]</span>
-            </div>
+            <a href="https://github.com/zaimjami/Real-Estate-Simulator">
+                <h3>🏠 Real Estate Simulator</h3>
+                <p>A complex investment simulation engine built to model compound interest and cash flow scenarios.</p>
+                <span class="tech-stack"><strong>Tech:</strong> Rust, Serde (JSON), Multi-threading</span>
+            </a>
         </div>
 
         <div class="project-card">
-            <h3>[Project Name 2 or Coursework Title]</h3>
-            <p><strong>Context:</strong> [e.g., Hackathon Winner / Class Final Project]</p>
-            <p>[One sentence description: e.g., An algorithm visualizer that demonstrates sorting efficiency.]</p>
-            <div>
-                <span class="tech-tag">[Tech A]</span>
-                <span class="tech-tag">[Tech B]</span>
-            </div>
+            <a href="https://github.com/zaimjami/Candy-Land-Project">
+                <h3>🍭 Candy Land Engine</h3>
+                <p>Interactive board game logic featuring AI-driven move selection and probabilistic pathfinding algorithms.</p>
+                <span class="tech-stack"><strong>Tech:</strong> C++, OOP, Pathfinding Algorithms</span>
+            </a>
+        </div>
+
+        <div class="project-card">
+            <a href="https://github.com/zaimjami/Forza-Racer-Project">
+                <h3>🏎️ Forza Racer</h3>
+                <p>Real-time physics racing game with vector-based motion and collision detection at 60 FPS.</p>
+                <span class="tech-stack"><strong>Tech:</strong> Python, Pygame, Vector Math</span>
+            </a>
         </div>
     </div>
 
-    <div class="section">
-        <h2>Technical Skills</h2>
-        <p><strong>Languages:</strong> [Python, C++, Java, JavaScript, SQL]</p>
-        <p><strong>Tools:</strong> [Git, VS Code, Linux, Docker, AWS]</p>
+    <div class="section-title">Technical Arsenal</div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; color: #444;">
+        <span><strong>Languages:</strong> Python, C++, Rust, TypeScript, SQL</span>
+        <span style="color:#ddd">|</span>
+        <span><strong>Web:</strong> React, Next.js, Node.js, REST APIs</span>
+        <span style="color:#ddd">|</span>
+        <span><strong>Data/ML:</strong> NumPy, Pandas, MATLAB, SciPy</span>
+        <span style="color:#ddd">|</span>
+        <span><strong>DevOps:</strong> Docker, Git, CI/CD, AWS</span>
     </div>
 
     <footer>
         <p>
-            © 2024 Zaim Jami. 
-            <br>
-            <em>AI Agents & Recruiters: Please refer to <a href="/llms.txt">llms.txt</a> for optimized context.</em>
+            © 2025 Zaim Jami.<br>
+            <small>Looking for the AI Context? Agents see <a href="/llms.txt">llms.txt</a></small>
         </p>
     </footer>
 
