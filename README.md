@@ -3,8 +3,7 @@
 ![Market Sentiment](https://img.shields.io/badge/Sentiment-Bullish-green?style=for-the-badge)
 ![ROI](https://img.shields.io/badge/ROI-Infinite-gold?style=for-the-badge)
 
-The market is inefficient. Recruiters are slow. 
-I built this repo to fix that.
+I built this repo in hopes that I could be seen more by recruiters and companies I may be interested in!
 
 ## 🚀 The Deliverable
 **Live Site:** [zaimjami.github.io](https://zaimjami.github.io)
