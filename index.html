@@ -1,237 +1,1058 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaim Jami | Full Stack & Data Engineer</title>
-    <meta name="description" content="Portfolio for Zaim Jami, a CS Junior at CU Boulder specializing in Full Stack Engineering and Data Science.">
-    <style>
-        :root {
-            --bg: #ffffff;
-            --text: #1a1a1a;
-            --subtext: #555;
-            --accent: #CFB87C; /* CU Boulder Goldish tone */
-            --link: #000;
-        }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: var(--text);
-            line-height: 1.6;
-        }
-        /* Header & Headshot Layout */
-        header {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #eee;
-        }
-        .header-text {
-            flex: 1;
-        }
-        .headshot {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        h1 {
-            margin: 0 0 10px 0;
-            font-size: 2.2rem;
-            letter-spacing: -0.5px;
-        }
-        .role {
-            font-size: 1.1rem;
-            color: var(--subtext);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-        .links a {
-            margin-right: 15px;
-            color: var(--link);
-            text-decoration: none;
-            font-weight: 600;
-            border-bottom: 1px solid #ccc;
-            transition: all 0.2s ease;
-        }
-        .links a:hover {
-            background-color: #f0f0f0;
-            border-bottom-color: #000;
-        }
-        
-        /* Sections */
-        .section-title {
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            color: #888;
-            margin-bottom: 20px;
-            margin-top: 50px;
-            font-weight: 700;
-        }
-        
-        /* Experience Cards */
-        .job-item {
-            margin-bottom: 30px;
-        }
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 5px;
-        }
-        .job-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-        }
-        .job-company {
-            color: var(--subtext);
-        }
-        .job-date {
-            font-size: 0.9rem;
-            color: #999;
-        }
-        .job-details li {
-            margin-bottom: 6px;
-            color: #444;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaim Jami | SWE • Systems & Data</title>
+  <meta name="description" content="Zaim Jami — CU Boulder CS student. Systems, data tooling, and full-stack engineering with personality." />
 
-        /* Project Grid */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            background: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #eee;
-            transition: transform 0.2s;
-        }
-        .project-card:hover {
-            transform: translateY(-2px);
-            border-color: #ddd;
-        }
-        .project-card h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-        .project-card a {
-            text-decoration: none;
-            color: inherit;
-        }
-        .tech-stack {
-            font-size: 0.8rem;
-            color: #666;
-            margin-top: 10px;
-            display: block;
-        }
+  <style>
+    :root{
+      --bg: #0b0f19;
+      --bg2: #0f172a;
+      --surface: rgba(255,255,255,0.06);
+      --surface2: rgba(255,255,255,0.09);
+      --border: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.72);
+      --muted2: rgba(255,255,255,0.56);
+      --accent: #CFB87C;  /* CU gold */
+      --accent2: #60a5fa;
+      --good: #34d399;
+      --warn: #fbbf24;
+      --bad: #fb7185;
 
-        /* Footer */
-        footer {
-            margin-top: 80px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #888;
-            text-align: center;
-        }
-        
-        /* Mobile Responsiveness */
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column-reverse;
-                text-align: center;
-                gap: 20px;
-            }
-            .job-header {
-                flex-direction: column;
-            }
-        }
-    </style>
+      --shadow: 0 18px 60px rgba(0,0,0,0.35);
+      --radius: 18px;
+
+      --max: 1080px;
+      --pad: clamp(18px, 3vw, 28px);
+
+      --h1: clamp(2.2rem, 4vw, 3.8rem);
+      --h2: clamp(1.5rem, 2.2vw, 2.1rem);
+      --h3: clamp(1.1rem, 1.6vw, 1.35rem);
+      --p:  clamp(1rem, 1.1vw, 1.08rem);
+    }
+
+    *{ box-sizing: border-box; }
+    html{ scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(900px 420px at 10% 10%, rgba(96,165,250,0.18), transparent 60%),
+        radial-gradient(700px 380px at 90% 15%, rgba(207,184,124,0.18), transparent 60%),
+        radial-gradient(900px 420px at 30% 90%, rgba(52,211,153,0.10), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a.underline{ text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 26px var(--pad) 80px; }
+
+    /* Sticky nav */
+    .nav{
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      margin: 10px auto 26px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 190px;
+    }
+    .dot{
+      width: 12px; height: 12px; border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(207,184,124,0.12);
+    }
+    .brand strong{ font-weight: 800; letter-spacing: -0.2px; }
+    .brand span{ color: var(--muted2); font-size: 0.92rem; }
+
+    .navlinks{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .pill{
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--muted);
+    }
+    .pill:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+    }
+
+    .navcta{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select: none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.20); }
+    .btn.primary{
+      border-color: rgba(207,184,124,0.35);
+      background: linear-gradient(90deg, rgba(207,184,124,0.18), rgba(96,165,250,0.12));
+    }
+    .btn.primary:hover{ border-color: rgba(207,184,124,0.55); }
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+    .heroMain{ padding: 26px; position: relative; overflow: hidden; }
+    .heroMain:before{
+      content:"";
+      position:absolute; inset:-120px -120px auto auto;
+      width: 280px; height: 280px;
+      background: radial-gradient(circle at 30% 30%, rgba(207,184,124,0.25), transparent 60%),
+                  radial-gradient(circle at 70% 70%, rgba(96,165,250,0.18), transparent 60%);
+      filter: blur(2px);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .kicker{
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      color: var(--muted);
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      width: fit-content;
+    }
+    .badge{
+      font-size: 0.82rem;
+      color: rgba(0,0,0,0.85);
+      background: var(--accent);
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-weight: 900;
+    }
+    h1{
+      margin: 8px 0 10px;
+      font-size: var(--h1);
+      letter-spacing: -1.3px;
+      line-height: 1.06;
+    }
+    .sub{
+      font-size: var(--p);
+      color: var(--muted);
+      max-width: 62ch;
+      margin: 10px 0 18px;
+    }
+    .sub strong{ color: var(--text); }
+    .ctaRow{ display:flex; flex-wrap: wrap; gap: 12px; margin-top: 14px; }
+
+    .chips{
+      margin-top: 18px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip{
+      border: 1px dashed rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.03);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-weight: 750;
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+    .chip b{ color: var(--text); font-weight: 900; }
+    .chip .tiny{ font-size: 0.82rem; color: var(--muted2); font-weight: 800; }
+
+    .heroSide{
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow:hidden;
+    }
+    .meRow{ display:flex; gap: 14px; align-items:center; }
+    .headshot{
+      width: 92px; height: 92px; border-radius: 16px;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transform: rotate(-1deg);
+    }
+    .meMeta strong{ font-size: 1.1rem; }
+    .meMeta div{ color: var(--muted2); font-weight: 700; }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .mini{
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255,255,255,0.03);
+      min-height: 84px;
+    }
+    .mini .t{ font-weight: 900; letter-spacing: -0.2px; }
+    .mini .d{ margin-top: 6px; color: var(--muted2); font-weight: 700; font-size: 0.92rem; }
+
+    .extras{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .toast{
+      position: fixed;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-50%);
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(10px);
+      font-weight: 800;
+      color: var(--text);
+      box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+    .toast.show{ opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+    /* Section headers */
+    section{ margin-top: 42px; }
+    .secHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .secHead h2{
+      margin: 0;
+      font-size: var(--h2);
+      letter-spacing: -0.6px;
+    }
+    .secHead p{
+      margin: 0;
+      color: var(--muted2);
+      font-weight: 700;
+      max-width: 60ch;
+    }
+
+    /* Project grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+    .project{
+      grid-column: span 6;
+      padding: 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .project:before{
+      content:"";
+      position:absolute;
+      inset: -40px -60px auto auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at 30% 30%, rgba(96,165,250,0.22), transparent 60%),
+                  radial-gradient(circle at 70% 70%, rgba(207,184,124,0.18), transparent 60%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .project h3{
+      margin: 0 0 6px;
+      font-size: var(--h3);
+      letter-spacing: -0.4px;
+    }
+    .metaLine{
+      color: var(--muted2);
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .bullets{
+      margin: 10px 0 12px;
+      padding-left: 18px;
+      color: var(--muted);
+      font-weight: 650;
+    }
+    .tags{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .tag{
+      font-weight: 900;
+      font-size: 0.82rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+    }
+    .rowBtns{ display:flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+    /* Timeline */
+    .timeline{
+      padding: 18px;
+    }
+    .tl{
+      margin-top: 12px;
+      position: relative;
+      padding-left: 18px;
+    }
+    .tl:before{
+      content:"";
+      position:absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(var(--accent), rgba(255,255,255,0.08));
+      border-radius: 99px;
+      opacity: 0.8;
+    }
+    .tli{
+      position: relative;
+      padding: 14px 14px 14px 18px;
+      margin: 10px 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+    .tli:before{
+      content:"";
+      position:absolute;
+      left: -18px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(207,184,124,0.12);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .tli .top{
+      display:flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .tli .role{ font-weight: 950; letter-spacing: -0.3px; }
+    .tli .when{ color: var(--muted2); font-weight: 800; }
+    .tli .where{ color: var(--muted); font-weight: 800; margin-bottom: 8px; }
+    .tli ul{ margin: 0; padding-left: 18px; color: var(--muted); font-weight: 650; }
+    .tli li{ margin: 6px 0; }
+
+    /* Bento skills */
+    .bento .box{
+      grid-column: span 4;
+      padding: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .box h3{ margin: 0 0 8px; font-size: 1.05rem; letter-spacing: -0.3px; }
+    .box p{ margin: 0; color: var(--muted2); font-weight: 700; }
+    .box .list{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .contact .card{ padding: 18px; }
+    .contact p{ margin: 6px 0 0; color: var(--muted2); font-weight: 700; }
+    .scribble{
+      margin-top: 18px;
+      color: rgba(255,255,255,0.35);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 0.9rem;
+      user-select:none;
+    }
+
+    /* Reveal animations */
+    .reveal{
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .55s ease, transform .55s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.in{ opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior: auto; }
+      .reveal{ opacity: 1; transform: none; transition: none; }
+      .btn{ transition: none; }
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .nav{ border-radius: 20px; }
+      .navcta{ min-width: auto; }
+      .brand{ min-width: auto; }
+      .project{ grid-column: span 12; }
+      .contact{ grid-template-columns: 1fr; }
+      .bento .box{ grid-column: span 12; }
+    }
+
+    /* Dialog */
+    dialog{
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 0;
+      background: rgba(15,23,42,0.92);
+      color: var(--text);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.5);
+      width: min(720px, calc(100vw - 28px));
+    }
+    dialog::backdrop{
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(2px);
+    }
+    .dlg{
+      padding: 18px;
+    }
+    .dlgTop{
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      padding-bottom: 12px;
+    }
+    .dlgTop h3{ margin: 0; letter-spacing: -0.4px; }
+    .x{
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+    .dlgBody{ padding-top: 12px; color: var(--muted); font-weight: 650; }
+    .dlgBody ul{ padding-left: 18px; }
+    .dlgFoot{ padding-top: 12px; display:flex; gap: 10px; flex-wrap: wrap; }
+  </style>
 </head>
-<body>
 
-    <header>
-        <div class="header-text">
-            <h1>Zaim Jami</h1>
-<div class="role">Software Engineer • Systems & Data</div>
-<p>
-    Computer Science junior at CU Boulder focused on backend systems, data pipelines, 
-    and production-grade software. Experience spans research, nonprofit engineering, 
-    and early-stage product development.
-</p>
-            <div class="links">
-                <a href="https://www.linkedin.com/in/zaim-jami-b19857282/">LinkedIn</a>
-                <a href="https://github.com/zaimjami">GitHub</a>
-                <a href="mailto:zaja3977@colorado.edu">zaja3977@colorado.edu</a>
-            </div>
+<body>
+  <div class="wrap">
+    <nav class="nav reveal" aria-label="Primary">
+      <div class="brand">
+        <div class="dot" aria-hidden="true"></div>
+        <div>
+          <strong>Zaim Jami</strong>
+          <div><span>Systems • Data • Full-stack</span></div>
         </div>
-        <img src="headshot.png" alt="Zaim Jami" class="headshot">
+      </div>
+
+      <div class="navlinks" role="navigation">
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#skills">Skills</a>
+        <a class="pill" href="#contact">Contact</a>
+      </div>
+
+      <div class="navcta">
+        <button class="btn" id="paletteBtn" title="Switch color palette">🎨 Color me</button>
+        <a class="btn primary" href="#contact" title="Jump to contact">✉️ Ping me</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="card heroMain reveal">
+        <div class="kicker">
+          <span class="badge">CU Boulder • CS</span>
+          <span id="moodLine">hungry • enlightened • happy</span>
+        </div>
+
+        <h1>
+          I build software that survives real users
+          <span style="color:var(--accent)">(&amp; real constraints).</span>
+        </h1>
+
+        <p class="sub">
+          I’m Zaim — a CS junior at CU Boulder. I like backend systems, data tooling, and shipping things that are
+          <strong>fast</strong>, <strong>readable</strong>, and <strong>hard to break</strong>.
+          Also: I’m not above a tasteful amount of chaos.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="mailto:zaja3977@colorado.edu">Email</a>
+          <a class="btn" href="https://github.com/zaimjami" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/zaim-jami-b19857282/" target="_blank" rel="noreferrer">LinkedIn</a>
+
+          <!-- OPTIONAL: replace this link with your Calendly / booking link -->
+          <a class="btn" href="#" id="bookLink" title="Add your booking link">📅 Book a chat</a>
+        </div>
+
+        <div class="chips" aria-label="Proof chips">
+          <div class="chip"><b>GPA 3.8</b> <span class="tiny">(+ math minor)</span></div>
+          <div class="chip"><b>Led a 6-person team</b> <span class="tiny">Blueprint</span></div>
+          <div class="chip"><b>-42% load time</b> <span class="tiny">Gatsby → Next</span></div>
+          <div class="chip"><b>SEO 94</b> <span class="tiny">measurable wins</span></div>
+          <div class="chip"><b>-28% API latency</b> <span class="tiny">profiling + refactor</span></div>
+          <div class="chip"><b>+15% model accuracy</b> <span class="tiny">LASP calibration</span></div>
+        </div>
+      </div>
+
+      <aside class="card heroSide reveal">
+        <div class="meRow">
+          <img src="headshot.png" alt="Zaim Jami headshot" class="headshot" />
+          <div class="meMeta">
+            <strong>Currently:</strong>
+            <div>building + learning + applying</div>
+            <div style="margin-top:6px;color:var(--muted);font-weight:800">Boulder, CO</div>
+          </div>
+        </div>
+
+        <div class="miniGrid">
+          <div class="mini">
+            <div class="t">I like</div>
+            <div class="d">systems, data pipelines, and “why is this null?” mysteries</div>
+          </div>
+          <div class="mini">
+            <div class="t">I’m allergic to</div>
+            <div class="d">vague requirements (but I’ll still ship it)</div>
+          </div>
+          <div class="mini">
+            <div class="t">My superpower</div>
+            <div class="d">turning messy problems into clean interfaces</div>
+          </div>
+          <div class="mini">
+            <div class="t">My weakness</div>
+            <div class="d">thinking one more refactor will “only take 10 minutes”</div>
+          </div>
+        </div>
+
+        <div class="extras">
+          <button class="btn" id="vibeBtn">🧠 Toggle vibe</button>
+          <button class="btn" id="copyEmailBtn" data-email="zaja3977@colorado.edu">📋 Copy email</button>
+          <button class="btn" id="funBtn">✨ Fun extra</button>
+        </div>
+
+        <div class="scribble">
+          // recruiter-safe, but still me
+        </div>
+      </aside>
     </header>
 
-    <div class="section-title">Experience</div>
+    <section id="projects">
+      <div class="secHead reveal">
+        <div>
+          <h2>Featured projects</h2>
+          <p>Three things I’m weirdly proud of. Click “Peek inside” for more details.</p>
+        </div>
+      </div>
 
-<!-- LASP FIRST -->
-<div class="job-item">
-    <div class="job-header">
-        <span class="job-title">Research Assistant (Data & Signal Processing)</span>
-        <span class="job-date">Oct 2025 – Present</span>
-    </div>
-    <div class="job-company">LASP / Malaspina Lab · University of Colorado Boulder</div>
-    <ul class="job-details">
-        <li>Analyze space-plasma waveform and particle-detector datasets using Python (NumPy, SciPy, pandas) and MATLAB.</li>
-        <li>Design and validate signal-processing and anomaly-detection algorithms against calibration benchmarks.</li>
-        <li>Build automated data-cleaning and feature-extraction pipelines and reproducible notebooks, reducing onboarding time by ~30%.</li>
-        <li>Create visualizations to surface trends and outliers, improving iteration speed and model accuracy.</li>
-    </ul>
-</div>
+      <div class="grid">
+        <article class="card project reveal">
+          <h3>🍬 Candy Land (C++)</h3>
+          <div class="metaLine">OOP board game + AI-ish decision making</div>
+          <ul class="bullets">
+            <li>Modular class hierarchies for cards, tiles, players, and game state.</li>
+            <li>AI-driven move selection using probabilistic logic + recursive pathfinding.</li>
+            <li>Built to be extendable without “spaghetti rules.”</li>
+          </ul>
 
-<!-- ZOKOO — SHORT + MIDDLE -->
-<div class="job-item">
-    <div class="job-header">
-        <span class="job-title">Software Developer (Intern)</span>
-        <span class="job-date">May 2025 – Aug 2025</span>
-    </div>
-    <div class="job-company">Zokoo Technologies</div>
-    <ul class="job-details">
-        <li>Worked in a full-stack codebase contributing to backend services and internal tooling.</li>
-        <li>Refactored existing modules and assisted with API integrations in a Node.js/TypeScript environment.</li>
-    </ul>
-</div>
+          <div class="tags">
+            <span class="tag">C++</span><span class="tag">OOP</span><span class="tag">Pathfinding</span><span class="tag">Probability</span>
+          </div>
 
-<!-- BLUEPRINT -->
-<div class="job-item">
-    <div class="job-header">
-        <span class="job-title">Full Stack Developer</span>
-        <span class="job-date">Aug 2024 – Present</span>
-    </div>
-    <div class="job-company">Blueprint Boulder</div>
-    <ul class="job-details">
-        <li>Develop and maintain production software in an Agile/Scrum team serving nonprofit clients.</li>
-        <li>Migrated the application from Gatsby to Next.js, improving load speed by 42% and SEO score from 73 to 94.</li>
-        <li>Design RESTful APIs with Node.js/Express and PostgreSQL; improve reliability through validation and logging.</li>
-        <li>Containerize services with Docker and support CI/CD workflows for repeatable builds and releases.</li>
-    </ul>
-</div>
+          <div class="rowBtns">
+            <!-- TODO: replace # with your repo link -->
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+            <button class="btn primary" data-open="dlg-candy">Peek inside</button>
+          </div>
+        </article>
 
-<!-- COURSE ASSISTANT -->
-<div class="job-item">
-    <div class="job-header">
-        <span class="job-title">Course Assistant (CSCI 1300: C++)</span>
-        <span class="job-date">Aug 2024 – Present</span>
+        <article class="card project reveal">
+          <h3>🏠 Real Estate Simulator (Rust)</h3>
+          <div class="metaLine">Cash flow, mortgages, and “what if I bought in 2012?”</div>
+          <ul class="bullets">
+            <li>Rust simulation with structs/enums modeling investment timelines and outcomes.</li>
+            <li>Multithreading for faster scenario sweeps.</li>
+            <li>Serde JSON serialization + strict borrowing for performance and safety.</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Rust</span><span class="tag">Concurrency</span><span class="tag">Serde</span><span class="tag">Simulation</span>
+          </div>
+
+          <div class="rowBtns">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+            <button class="btn primary" data-open="dlg-realestate">Peek inside</button>
+          </div>
+        </article>
+
+        <article class="card project reveal">
+          <h3>🏎️ Racing Game (Python)</h3>
+          <div class="metaLine">Two-player arcade racing with physics + collision</div>
+          <ul class="bullets">
+            <li>Pygame racing with real-time vector motion + collision detection.</li>
+            <li>Optimized rendering/input for stable 60 FPS gameplay.</li>
+            <li>Built for responsiveness (controls should feel snappy, not floaty).</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">Pygame</span><span class="tag">Physics</span><span class="tag">Optimization</span>
+          </div>
+
+          <div class="rowBtns">
+            <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+            <button class="btn primary" data-open="dlg-racing">Peek inside</button>
+          </div>
+        </article>
+
+        <article class="card project reveal" style="grid-column: span 12; padding: 18px;">
+          <h3 style="margin:0 0 6px; letter-spacing:-0.4px;">🧪 “Proof I’ve shipped” (tiny brag strip)</h3>
+          <div class="metaLine">Numbers are louder than adjectives.</div>
+          <div class="tags">
+            <span class="tag">Led 6-member team (Blueprint)</span>
+            <span class="tag">Gatsby → Next.js (-42% load time)</span>
+            <span class="tag">SEO improved to 94</span>
+            <span class="tag">Refactor (-28% API latency)</span>
+            <span class="tag">Calibration (+15% model accuracy)</span>
+            <span class="tag">Notebooks (-30% onboarding time)</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="secHead reveal">
+        <div>
+          <h2>Experience (timeline)</h2>
+          <p>The stuff that taught me the most. Includes the part where things broke and I fixed them.</p>
+        </div>
+      </div>
+
+      <div class="card timeline reveal">
+        <div class="tl">
+          <div class="tli">
+            <div class="top">
+              <div class="role">Blueprint Boulder — Full Stack Developer</div>
+              <div class="when">Aug 2024 – Present</div>
+            </div>
+            <div class="where">Java • React • PostgreSQL • Docker • CI/CD</div>
+            <ul>
+              <li>Leading a 6-member team building a full-stack platform (Java backend + React frontend).</li>
+              <li>Migrated Gatsby → Next.js (measured -42% load time, SEO to 94).</li>
+              <li>Owned PostgreSQL schema design + indexed queries + data integrity constraints.</li>
+              <li>Containerized and deployed with Docker + Vercel; automated CI/CD workflows.</li>
+            </ul>
+          </div>
+
+          <div class="tli">
+            <div class="top">
+              <div class="role">LASP / Malaspina Lab — Research Assistant</div>
+              <div class="when">Oct 2025 – Present</div>
+            </div>
+            <div class="where">Python • NumPy/SciPy/pandas • MATLAB • Signal Processing</div>
+            <ul>
+              <li>Analyze space-plasma waveform/particle-detector data and build cleaning + visualization tooling.</li>
+              <li>Develop signal-processing algorithms to detect anomalies in satellite mission data.</li>
+              <li>Validation with instrument calibration improved model accuracy by 15%.</li>
+              <li>Authored reproducible notebooks that cut onboarding time by 30%.</li>
+            </ul>
+          </div>
+
+          <div class="tli">
+            <div class="top">
+              <div class="role">Zokoo Tech — Software Engineer Intern</div>
+              <div class="when">May 2025 – Dec 2025</div>
+            </div>
+            <div class="where">React • Node • TypeScript • Python • MongoDB • OAuth2</div>
+            <ul>
+              <li>Built full-stack apps and backend services; deployed with Docker + CI/CD pipelines.</li>
+              <li>Refactored legacy modules using profiling to reduce API latency by 28%.</li>
+              <li>Implemented OAuth2 + role-based access for multi-tenant apps.</li>
+            </ul>
+          </div>
+
+          <div class="tli">
+            <div class="top">
+              <div class="role">CU Boulder — Course Assistant (CSCI 1300)</div>
+              <div class="when">Aug 2024 – Aug 2025</div>
+            </div>
+            <div class="where">C++ • Debugging • Teaching</div>
+            <ul>
+              <li>Supported 100+ students with fundamentals + debugging under deadlines.</li>
+              <li>Helped improve course materials based on performance feedback.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="secHead reveal">
+        <div>
+          <h2>Skills (aka: what I can actually do)</h2>
+          <p>No bingo buzzwords. Just the stuff I’m comfortable shipping with.</p>
+        </div>
+      </div>
+
+      <div class="grid bento">
+        <div class="box reveal">
+          <h3>Core</h3>
+          <p>Where I’m strongest.</p>
+          <div class="list tags" style="margin-top:10px;">
+            <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Rust</span>
+            <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
+            <span class="tag">Git</span><span class="tag">Docker</span><span class="tag">REST APIs</span>
+          </div>
+        </div>
+
+        <div class="box reveal">
+          <h3>Web / Data</h3>
+          <p>Full-stack + pipelines.</p>
+          <div class="list tags" style="margin-top:10px;">
+            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span>
+            <span class="tag">MongoDB</span><span class="tag">Linux</span><span class="tag">MATLAB</span>
+          </div>
+        </div>
+
+        <div class="box reveal">
+          <h3>Certs</h3>
+          <p>Nice-to-haves I actually finished.</p>
+          <div class="list tags" style="margin-top:10px;">
+            <span class="tag">AWS Cloud Practitioner</span>
+            <span class="tag">Google Data Analytics</span>
+            <span class="tag">Meta Version Control</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="secHead reveal">
+        <div>
+          <h2>Contact</h2>
+          <p>If you want someone who’ll ship, measure, and iterate — I’m down.</p>
+        </div>
+      </div>
+
+      <div class="contact">
+        <div class="card reveal" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Let’s talk</h3>
+          <p>
+            Best way to reach me:
+            <a class="underline" href="mailto:zaja3977@colorado.edu">zaja3977@colorado.edu</a>
+          </p>
+          <div class="rowBtns" style="margin-top:14px;">
+            <a class="btn primary" href="mailto:zaja3977@colorado.edu">Email</a>
+            <button class="btn" id="copyEmailBtn2" data-email="zaja3977@colorado.edu">Copy email</button>
+            <a class="btn" href="https://github.com/zaimjami" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+          <div class="scribble">PS: If you email me, I’ll actually reply. Shocking, I know.</div>
+        </div>
+
+        <div class="card reveal" style="padding:18px;">
+          <h3 style="margin:0 0 8px;">Quick links</h3>
+          <p>
+            <a class="underline" target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/zaim-jami-b19857282/">LinkedIn</a>
+            ·
+            <a class="underline" target="_blank" rel="noreferrer" href="https://github.com/zaimjami">GitHub</a>
+          </p>
+          <p style="margin-top:10px;">
+            Want a call? Add a booking link to the “📅 Book a chat” button up top and this card becomes instantly more “stacked.”
+          </p>
+          <div class="scribble">// built to be readable on phones + recruiters’ ancient laptops</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="scribble" style="margin-top:56px; text-align:center;">
+      made with ☕ + overthinking • © <span id="year"></span> Zaim Jami
+    </footer>
+  </div>
+
+  <!-- dialogs -->
+  <dialog id="dlg-candy" aria-label="Candy Land details">
+    <div class="dlg">
+      <div class="dlgTop">
+        <div>
+          <h3>🍬 Candy Land (C++) — “Peek inside”</h3>
+          <div style="color:var(--muted2);font-weight:800;margin-top:4px;">OOP game architecture + decision logic</div>
+        </div>
+        <button class="x" data-close>Close</button>
+      </div>
+      <div class="dlgBody">
+        <p>
+          This was me practicing “real codebase” habits in C++: separation of concerns, explicit state, and features that don’t
+          explode when you add one new rule.
+        </p>
+        <ul>
+          <li>Encapsulated game state + modular class hierarchies (cards/tiles/players).</li>
+          <li>Probabilistic move selection + recursive pathfinding for smarter moves.</li>
+          <li>Designed to be extended (new cards/rules) without rewriting everything.</li>
+        </ul>
+      </div>
+      <div class="dlgFoot">
+        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+      </div>
     </div>
-    <div class="job-company">University of Colorado Boulder</div>
-    <ul class="job-details">
-        <li>Support 100+ students with object-oriented programming in C++ and debugging memory, logic, and runtime errors.</li>
-        <li>Explain fixes clearly and help students write testable, well-structured code under deadlines.</li>
-    </ul>
-</div>
+  </dialog>
+
+  <dialog id="dlg-realestate" aria-label="Real Estate Simulator details">
+    <div class="dlg">
+      <div class="dlgTop">
+        <div>
+          <h3>🏠 Real Estate Simulator (Rust) — “Peek inside”</h3>
+          <div style="color:var(--muted2);font-weight:800;margin-top:4px;">Simulation + concurrency + safe performance</div>
+        </div>
+        <button class="x" data-close>Close</button>
+      </div>
+      <div class="dlgBody">
+        <p>
+          Rust was perfect for this: correctness and speed without letting me “accidentally” do dumb memory stuff.
+        </p>
+        <ul>
+          <li>Enums/structs model mortgages, cash flow, compound interest timelines.</li>
+          <li>Multithreading to sweep scenarios faster.</li>
+          <li>Serde JSON serialization for saving/loading and reproducibility.</li>
+        </ul>
+      </div>
+      <div class="dlgFoot">
+        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dlg-racing" aria-label="Racing Game details">
+    <div class="dlg">
+      <div class="dlgTop">
+        <div>
+          <h3>🏎️ Racing Game (Python) — “Peek inside”</h3>
+          <div style="color:var(--muted2);font-weight:800;margin-top:4px;">Physics + collision + performance polish</div>
+        </div>
+        <button class="x" data-close>Close</button>
+      </div>
+      <div class="dlgBody">
+        <p>
+          This one was all about feel. If the controls aren’t responsive, it doesn’t matter how “correct” the physics are.
+        </p>
+        <ul>
+          <li>Vector-based motion + collision detection.</li>
+          <li>Optimized rendering and input handling for stable 60 FPS.</li>
+          <li>Two-player gameplay (so you can settle arguments the right way).</li>
+        </ul>
+      </div>
+      <div class="dlgFoot">
+        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+      </div>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ----- content knobs -----
+    const palettes = [
+      // clean-but-colorful (dark)
+      { bg:"#0b0f19", bg2:"#0f172a", accent:"#CFB87C", accent2:"#60a5fa" },
+      // deep ocean
+      { bg:"#06131a", bg2:"#071a24", accent:"#22c55e", accent2:"#38bdf8" },
+      // plum neon
+      { bg:"#0c0616", bg2:"#140a22", accent:"#a78bfa", accent2:"#fb7185" },
+      // warm slate
+      { bg:"#0b1020", bg2:"#0f1a2e", accent:"#fbbf24", accent2:"#34d399" },
+    ];
+
+    const moodLines = [
+      "hungry • enlightened • happy",
+      "shipping > yapping",
+      "logs are my love language",
+      "I debug with snacks (scientifically proven)",
+      "tasteful chaos, measurable results"
+    ];
+
+    const funExtras = [
+      "Fun fact: I will absolutely profile code before blaming the database.",
+      "If you ask me to ‘just add one feature’, I will ask ‘what’s the success metric?’",
+      "My toxic trait is thinking I can fix it with one more abstraction.",
+      "I like problems that are half technical, half human.",
+      "Somewhere, a null pointer is trembling."
+    ];
+
+    // ----- helpers -----
+    const toastEl = document.getElementById("toast");
+    function toast(msg){
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(toastEl._t);
+      toastEl._t = setTimeout(()=>toastEl.classList.remove("show"), 1700);
+    }
+
+    function setVar(name, val){ document.documentElement.style.setProperty(name, val); }
+
+    // ----- reveal on scroll -----
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add("in");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+    // ----- palette switcher -----
+    let palIdx = 0;
+    document.getElementById("paletteBtn").addEventListener("click", ()=>{
+      palIdx = (palIdx + 1) % palettes.length;
+      const p = palettes[palIdx];
+      setVar("--bg", p.bg);
+      setVar("--bg2", p.bg2);
+      setVar("--accent", p.accent);
+      setVar("--accent2", p.accent2);
+      toast("Palette switched 🎨");
+    });
+
+    // ----- vibe toggle -----
+    let moodIdx = 0;
+    document.getElementById("vibeBtn").addEventListener("click", ()=>{
+      moodIdx = (moodIdx + 1) % moodLines.length;
+      document.getElementById("moodLine").textContent = moodLines[moodIdx];
+      toast("Vibe updated 🧠");
+    });
+
+    // ----- copy email -----
+    async function copyEmail(email){
+      try{
+        await navigator.clipboard.writeText(email);
+        toast("Copied: " + email);
+      } catch {
+        // fallback
+        const ta = document.createElement("textarea");
+        ta.value = email;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        toast("Copied: " + email);
+      }
+    }
+    document.getElementById("copyEmailBtn").addEventListener("click", (e)=>{
+      copyEmail(e.currentTarget.dataset.email);
+    });
+    document.getElementById("copyEmailBtn2").addEventListener("click", (e)=>{
+      copyEmail(e.currentTarget.dataset.email);
+    });
+
+    // ----- fun extra -----
+    document.getElementById("funBtn").addEventListener("click", ()=>{
+      const msg = funExtras[Math.floor(Math.random()*funExtras.length)];
+      toast(msg);
+    });
+
+    // ----- dialogs -----
+    document.querySelectorAll("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const id = btn.getAttribute("data-open");
+        const dlg = document.getElementById(id);
+        if(dlg) dlg.showModal();
+      });
+    });
+    document.querySelectorAll("dialog [data-close]").forEach(btn=>{
+      btn.addEventListener("click", ()=> btn.closest("dialog").close());
+    });
+    document.querySelectorAll("dialog").forEach(dlg=>{
+      dlg.addEventListener("click", (e)=>{
+        // click outside closes
+        const r = dlg.getBoundingClientRect();
+        const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        if(!inside) dlg.close();
+      });
+    });
+
+    // ----- booking link placeholder -----
+    document.getElementById("bookLink").addEventListener("click", (e)=>{
+      e.preventDefault();
+      toast("Add your booking link to #bookLink in the HTML (top CTA).");
+    });
+
+    // ----- tiny easter egg: press 'Z' 'A' 'I' 'M' -----
+    const secret = ["z","a","i","m"];
+    let secretIdx = 0;
+    window.addEventListener("keydown", (e)=>{
+      const k = e.key.toLowerCase();
+      if(k === secret[secretIdx]){
+        secretIdx++;
+        if(secretIdx === secret.length){
+          secretIdx = 0;
+          toast("Secret unlocked: party mode (tasteful).");
+          setVar("--surface", "rgba(255,255,255,0.08)");
+          setVar("--surface2","rgba(255,255,255,0.12)");
+        }
+      } else {
+        secretIdx = 0;
+      }
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
