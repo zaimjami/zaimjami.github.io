@@ -497,6 +497,8 @@
     .dlgBody ul{ padding-left: 18px; }
     .dlgFoot{ padding-top: 12px; display:flex; gap: 10px; flex-wrap: wrap; }
   </style>
+  <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 
 <body>
@@ -531,7 +533,7 @@
         </div>
 
         <h1>
-          I try my best to build software that survives real users
+          I build software that is correct and effictient; surviving real users
           <span style="color:var(--accent)">(&amp; real constraints).</span>
         </h1>
 
@@ -546,8 +548,9 @@
           <a class="btn" href="https://github.com/zaimjami" target="_blank" rel="noreferrer">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/zaim-jami-b19857282/" target="_blank" rel="noreferrer">LinkedIn</a>
 
-          <!-- OPTIONAL: replace this link with your Calendly / booking link -->
-          <a class="btn" href="#" id="bookLink" title="Add your booking link">📅 Book a chat</a>
+          <a class="btn" href="https://calendly.com/zaja3977-colorado" id="bookLink" target="_blank" rel="noreferrer">
+  📅 Book a chat
+</a>
         </div>
 
         <div class="chips" aria-label="Proof chips">
@@ -753,7 +756,7 @@
       <div class="secHead reveal">
         <div>
           <h2>Skills (aka: what I can actually do)</h2>
-          <p>ust the stuff I’m comfortable shipping with!</p>
+          <p>Just the stuff I’m comfortable shipping with!</p>
         </div>
       </div>
 
@@ -762,9 +765,15 @@
           <h3>Core</h3>
           <p>Where I’m strongest.</p>
           <div class="list tags" style="margin-top:10px;">
-            <span class="tag">C++</span><span class="tag">Python</span><span class="tag">Rust</span><span class="tag">Java<span class="tag">
-            <span class="tag">JavaScript</span><span class="tag">TypeScript</span>
-            <span class="tag">Git</span><span class="tag">Docker</span><span class="tag">REST APIs</span>
+            <span class="tag">C++</span>
+<span class="tag">Python</span>
+<span class="tag">Rust</span>
+<span class="tag">Java</span>
+<span class="tag">JavaScript</span>
+<span class="tag">TypeScript</span>
+<span class="tag">Git</span>
+<span class="tag">Docker</span>
+<span class="tag">REST APIs</span>
           </div>
         </div>
 
@@ -854,7 +863,7 @@
         </ul>
       </div>
       <div class="dlgFoot">
-        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+        <a class="btn" href="https://github.com/zaimjami/Dungeon-Project" target="_blank" rel="noreferrer">Repo</a>
       </div>
     </div>
   </dialog>
@@ -879,7 +888,7 @@
         </ul>
       </div>
       <div class="dlgFoot">
-        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+        <a class="btn" href="https://github.com/zaimjami/Real-Estate-Simulator" target="_blank" rel="noreferrer">Repo</a>
       </div>
     </div>
   </dialog>
@@ -904,7 +913,7 @@
         </ul>
       </div>
       <div class="dlgFoot">
-        <a class="btn" href="#" target="_blank" rel="noreferrer">Repo</a>
+        <a class="btn" href="https://github.com/zaimjami/Forza-Racer-Project" target="_blank" rel="noreferrer">Repo</a>
       </div>
     </div>
   </dialog>
@@ -1028,11 +1037,16 @@
       });
     });
 
-    // ----- booking link placeholder -----
-    document.getElementById("bookLink").addEventListener("click", (e)=>{
-      e.preventDefault();
-      toast("Add your booking link to #bookLink in the HTML (top CTA).");
-    });
+const calendlyUrl = "https://calendly.com/zaja3977-colorado";
+const bookLink = document.getElementById("bookLink");
+
+bookLink.addEventListener("click", (e) => {
+  // I think here if Calendly script loaded, use popup. Otherwise, let it open in a new tab.
+  if (window.Calendly) {
+    e.preventDefault();
+    Calendly.initPopupWidget({ url: calendlyUrl });
+  }
+});
 
     // ----- tiny easter egg: press 'Z' 'A' 'I' 'M' -----
     const secret = ["z","a","i","m"];
